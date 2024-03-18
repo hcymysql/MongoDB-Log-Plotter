@@ -8,7 +8,7 @@ MongoDB-Log-Plotter is a script that analyzes MongoDB logs (version 4.4 or above
 - Install dependencies using `pip install -r requeriments.txt`
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/yourusername/MongoDB-Log-Plotter.git`
+1. Clone the repository: `git clone https://github.com/hcymysql/MongoDB-Log-Plotter.git`
 2. Navigate to the project directory: `cd MongoDB-Log-Plotter`
 3. Install dependencies: `pip3 install -r requeriments.txt -i "http://mirrors.aliyun.com/pypi/simple" --trusted-host "mirrors.aliyun.com"`
 4. Run the script: `python MongoDB_log_plotter.py /path/to/log/file.log`
