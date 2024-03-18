@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@author: zelmar@michelini.com.uy
-"""
-
-
 import json
 import pandas as pd
 import dash
@@ -175,20 +169,22 @@ scatter_fig = px.scatter(
     y='Duration (ms)',
     color='Namespace',
     labels={'Timestamp': 'Timestamp', 'Duration (ms)': 'Duration (ms)'},
-    hover_data={'Timestamp': '|%Y-%m-%d %H:%M:%S.%f|', 'Namespace': True, 'Command': False},
-    ).update_layout(
-    yaxis=dict(tickformat="%0d"),
-    xaxis=dict(rangeslider_visible=False),
-    height=500  # Adjust the height as needed
-    ).update_traces(marker=dict(size=8), selector=dict(mode='markers'))
+    hover_data={'Timestamp': '|%Y-%m-%d %H:%M:%S.%f|', 'Namespace': True, 'Command': True},
+ 
+   )
+# 将scatter图添加到fig中
+fig.add_trace(scatter_fig.data[0], row=1, col=1) # 添加第一个trace
+for trace in scatter_fig.data[1:]: # 添加其余的trace
+    fig.add_trace(trace, row=1, col=1)
 
+"""
 # Extract scatter trace from Plotly Express figure
 a = df_slow_queries_sample['Namespace'].nunique()
 for i in range(a-1):
    # print(i)
     scatter_trace = scatter_fig['data'][i]
     fig.add_trace(scatter_trace, row=1, col=1)
-
+"""
 
 
 # Add line plot for Connection Counts
@@ -351,4 +347,4 @@ def display_query_slow_queries(clickData_slow):
         return f"Timestamp: {timestamp}\nDuration: {duration} ms\nNamespace: {namespace}\nCommand: {command}"
     
     
-app.run_server(debug=False)
+app.run_server(host="0.0.0.0", debug=False)
