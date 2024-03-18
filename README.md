@@ -3,7 +3,7 @@
 MongoDB-Log-Plotter is a script that analyzes MongoDB logs (version 4.4 or above) to extract information about slow queries, connections, and errors. It then visualizes the data using Dash and Plotly.
 
 ## Prerequisites
-- Python 3.6 or later
+- Python 3.10
 - MongoDB version 4.4 or above
 - Install dependencies using `pip install -r requeriments.txt`
 
